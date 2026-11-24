@@ -1,26 +1,3 @@
-Tushundim! Siz yuborgan rasm o‘lchami **telefonni yotiq (Gorizontal / Landscape — 20:9 keng ekran)** holatida ushlab
-o‘ynash ko‘rinishi ekan.
-
-Oldingi versiyada yotiq telefon ekranida (balandligi ~360-420px bo‘lganda) yuqori va pastki panellar hamda tugmalar
-siqilib qolar edi. Endi men o‘yinni **PUBG Mobile / COD Mobile** uslubida **keng yotiq ekranlarga 100% moslab** qayta
-tuzdim:
-
-### Yotiq (Landscape) telefon uchun qilingan o‘zgarishlar:
-1. **Haqiqiy PUBG / COD Mobile HUD joylashuvi**:
-- **Chap pastki burchak:** Bosh barmoq uchun erkin Joystik (tegigacha oldinga itarsangiz avtomatik yuguradi).
-- **O‘rta pastki qism:** HP jon chizig‘i, Qurol nomi va O‘q soni pastki o‘rtaga ixcham joylashtirildi — joystik va otish
-tugmalariga umuman xalaqit bermaydi!
-- **O‘ng pastki burchak:** Katta **OTISH** tugmasi (bosib turib barmoqni siljitish bilan nishonni ham burish mumkin) va
-uning atrofida **NISHON**, **SAKRASH**, **EGILISH**, **O‘Q (R)**, **QUROL**, **💣** tugmalari.
-- **Yuqori o‘ng burchak:** Tezkor **⛶ Fullscreen** va **❚❚ Pauza** tugmalari.
-2. **Avtomatik To‘liq Ekran (Fullscreen)**: Telefonda **PLAY** tugmasini bossangiz brauzerning manzil satrini yashirib,
-o‘yinni keng ekranga yoyishga harakat qiladi.
-3. **Menyu ham Yotiq ekranga moslandi**: Menyu tugmalari chap tomonda ixcham ustunda turadi, qurol ombori (3D ko‘rinish)
-va sozlamalar ekranga bemalol sig‘adi.
-
-Quyidagi yangilangan bitta **`index.html`** faylini saqlab, telefoningizni yotiq (gorizontal) tutib o‘ynab ko‘ring:
-
-```html
 <!DOCTYPE html>
 <html lang="uz">
 
@@ -79,7 +56,6 @@ Quyidagi yangilangan bitta **`index.html`** faylini saqlab, telefoningizni yotiq
             display: none !important;
         }
 
-        /* Loading */
         #loading-screen {
             position: fixed;
             inset: 0;
@@ -128,7 +104,6 @@ Quyidagi yangilangan bitta **`index.html`** faylini saqlab, telefoningizni yotiq
             color: var(--muted);
         }
 
-        /* Overlays & Menu */
         .overlay-screen {
             position: fixed;
             inset: 0;
@@ -460,7 +435,6 @@ Quyidagi yangilangan bitta **`index.html`** faylini saqlab, telefoningizni yotiq
             line-height: 1.38;
         }
 
-        /* Weapons Armory */
         .weapons-layout {
             display: grid;
             grid-template-columns: 240px 1fr;
@@ -596,7 +570,6 @@ Quyidagi yangilangan bitta **`index.html`** faylini saqlab, telefoningizni yotiq
             touch-action: manipulation;
         }
 
-        /* Settings & About */
         .settings-grid,
         .about-grid {
             display: grid;
@@ -1144,7 +1117,6 @@ Quyidagi yangilangan bitta **`index.html`** faylini saqlab, telefoningizni yotiq
             color: var(--muted);
         }
 
-        /* Modals */
         #pause-menu,
         #gameover-menu {
             align-items: center;
@@ -1283,7 +1255,6 @@ Quyidagi yangilangan bitta **`index.html`** faylini saqlab, telefoningizni yotiq
             box-shadow: 0 4px 18px rgba(255, 87, 34, 0.45);
         }
 
-        /* ============ TIK (PORTRAIT) TELEFON ============ */
         @media (max-width: 920px) and (min-height: 521px) {
             .overlay-screen {
                 flex-direction: column;
@@ -1402,7 +1373,6 @@ Quyidagi yangilangan bitta **`index.html`** faylini saqlab, telefoningizni yotiq
             }
         }
 
-        /* ============ YOTIQ (LANDSCAPE 20:9) TELEFON — PUBG/COD USLUBI ============ */
         @media (max-height: 520px) {
             .menu-sidebar {
                 width: 168px;
@@ -1482,7 +1452,6 @@ Quyidagi yangilangan bitta **`index.html`** faylini saqlab, telefoningizni yotiq
                 height: 115px;
             }
 
-            /* Landscape HUD: O'rtada pastda HP & Qurol, chetlarda Joystik & Otish */
             .hud-top {
                 padding: 6px 10px;
             }
@@ -1991,7 +1960,6 @@ Quyidagi yangilangan bitta **`index.html`** faylini saqlab, telefoningizni yotiq
             hard: { label: 'QIYIN (100 HP)', maxHp: 100, regen: 0, dmgMult: 1.05, accMult: 1.0, rateMult: 0.9, enemyHpMult: 1.2, healOnKill: 0, grenades: 2 }
         };
 
-        /* ==================== 1. OVOZ VA MUSIQA DVIGATELI ==================== */
         class SoundEngine {
             constructor() {
                 this.ctx = null; this.masterGain = null; this.sfxGain = null; this.musicGain = null;
@@ -2124,7 +2092,6 @@ Quyidagi yangilangan bitta **`index.html`** faylini saqlab, telefoningizni yotiq
             }
         }
 
-        /* ==================== 2. TEKSTURALAR ==================== */
         class TextureFactory {
             constructor() { this.cache = new Map(); }
             get(name, rx = 1, ry = 1) {
@@ -2197,7 +2164,6 @@ Quyidagi yangilangan bitta **`index.html`** faylini saqlab, telefoningizni yotiq
             }
         }
 
-        /* ==================== 3. QUROLLAR (7 TA 3D MODEL) ==================== */
         const WEAPON_ORDER = ['ak47', 'm416', 'awm', 'sniper', 'shotgun', 'pistol', 'mg'];
         const WEAPONS_DATA = {
             ak47: { id: 'ak47', name: 'AK-47', category: 'ASSAULT RIFLE', desc: 'Kuchli 7.62mm avtomat. Yuqori zarar va ishonchli otish quvvati.', damage: 42, fireRate: 0.105, reloadTime: 1.4, magSize: 35, reserveMax: 180, range: 250, spread: 0.013, adsSpread: 0.003, recoil: 0.022, auto: true, pellets: 1, scope: false, adsFov: 52, stats: { dmg: 80, rof: 78, rng: 76, acc: 76 } },
@@ -2417,7 +2383,6 @@ Quyidagi yangilangan bitta **`index.html`** faylini saqlab, telefoningizni yotiq
             }
         }
 
-        /* ==================== 4. DUNYO XARITASI VA OB-HAVO ==================== */
         const MAP_ZONES = [
             { id: 'warzone', name: 'OCHIQ JANG MAYDONI', tag: 'MARKAZIY SEKTOR', desc: 'Barcha hududlar tutashgan markaziy jang maydoni va barrikadalar.', spawn: { x: 0, z: 18 } },
             { id: 'city', name: 'SHAHAR XARITASI', tag: 'URBAN SEKTOR', desc: 'Ko‘p qavatli binolar, asfalt ko‘chalar va chiroqlar.', spawn: { x: -105, z: -95 } },
@@ -2681,7 +2646,6 @@ Quyidagi yangilangan bitta **`index.html`** faylini saqlab, telefoningizni yotiq
             }
         }
 
-        /* ==================== 5. RAQIBLAR (AI) VA PORTLASHLAR ==================== */
         const ENEMY_TYPES = {
             soldier: { name: 'Askar', hp: 90, speed: 4.6, damage: 10, fireRate: 1.3, range: 60, color: 0x3b4d36, scale: 1.0, score: 100 },
             sniper: { name: 'Snayper', hp: 75, speed: 3.6, damage: 20, fireRate: 2.5, range: 110, color: 0x334155, scale: 0.98, score: 160 },
@@ -2870,6 +2834,7 @@ Quyidagi yangilangan bitta **`index.html`** faylini saqlab, telefoningizni yotiq
             reset(x, z, diffCfg = DIFFICULTY_CFG.easy) {
                 this.position.set(x, this.world.getTerrainHeight(x, z) + 0.1, z);
                 this.velocity.set(0, 0, 0); this.yaw = 0; this.pitch = 0;
+                this.camera.rotation.set(0, 0, 0, 'YXZ');
                 this.maxHp = diffCfg.maxHp; this.hp = diffCfg.maxHp; this.stamina = 100;
                 this.grenades = diffCfg.grenades; this.timeSinceHit = 5;
                 this.isCrouching = false; this.mouseFire = false; this.mouseADS = false;
@@ -2955,14 +2920,13 @@ Quyidagi yangilangan bitta **`index.html`** faylini saqlab, telefoningizni yotiq
                 }
                 this.screenShake = Math.max(0, this.screenShake - dt * 0.4);
                 this.camera.position.set(this.position.x + (Math.random() - 0.5) * this.screenShake, this.position.y + this.currentHeight + (Math.random() - 0.5) * this.screenShake, this.position.z);
-                this.camera.rotation.order = 'YXZ'; this.camera.rotation.y = this.yaw; this.camera.rotation.x = this.pitch;
+                this.camera.rotation.set(this.pitch, this.yaw, 0, 'YXZ');
                 return moving ? (this.isSprinting ? 1.5 : 1.0) : 0;
             }
             isFiring() { return this.mouseFire || this.touchFire; }
             isADS() { return this.mouseADS || this.touchADS; }
         }
 
-        /* ==================== 7. UI VA 3D OMBOR ==================== */
         const GAME_MODES = [
             { id: 'survival', name: 'SURVIVAL MODE', badge: 'CHIDAMLILIK', desc: 'To‘xtovsiz dushman to‘lqinlariga qarshi kurashing.' },
             { id: 'campaign', name: 'CAMPAIGN MODE', badge: 'MISSIYA', desc: '3 bosqichli harbiy missiya: Guruhni tozalash, qutilarni portlatish va Komandir!' },
@@ -3208,7 +3172,6 @@ Quyidagi yangilangan bitta **`index.html`** faylini saqlab, telefoningizni yotiq
             }
         }
 
-        /* ==================== 8. ASOSIY O'YIN DVIGATELI ==================== */
         class GameEngine {
             constructor() {
                 this.state = 'MENU'; this.selectedMode = 'survival'; this.selectedMap = 'warzone';
@@ -3219,6 +3182,7 @@ Quyidagi yangilangan bitta **`index.html`** faylini saqlab, telefoningizni yotiq
 
                 this.scene = new THREE.Scene();
                 this.camera = new THREE.PerspectiveCamera(75, window.innerWidth / window.innerHeight, 0.1, 650);
+                this.camera.rotation.order = 'YXZ';
                 this.scene.add(this.camera);
                 this.renderer = new THREE.WebGLRenderer({ antialias: true, powerPreference: 'high-performance' });
                 this.renderer.setSize(window.innerWidth, window.innerHeight);
@@ -3628,3 +3592,6 @@ Quyidagi yangilangan bitta **`index.html`** faylini saqlab, telefoningizni yotiq
 </body>
 
 </html>
+```
+
+Endi **PLAY** ni bosganingizda ufq va barcha binolar mutlaqo tekis va to‘g‘ri ko‘rinishda chiqadi!
